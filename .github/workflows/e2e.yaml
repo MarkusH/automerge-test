@@ -17,7 +17,7 @@ jobs:
           - 6443:6443
         volumes:
           - /tmp/output:/tmp/output
-        options: --privileged
+        options: --privileged --entrypoint "/bin/sh -c '/bin/k3s server'"
     steps:
     - name: Test on k3s
       env:
