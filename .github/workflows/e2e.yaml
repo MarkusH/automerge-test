@@ -17,7 +17,7 @@ jobs:
           - 6443:6443
         volumes:
           - /tmp/output:/tmp/output
-        options: --privileged --entrypoint /bin/k3s server
+        options: --privileged
     steps:
     - name: Test on k3s
       env:
@@ -25,3 +25,4 @@ jobs:
       run: |
         kubectl get nodes
         kubectl config get-contexts
+        kubectl get ns
