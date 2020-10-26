@@ -9,7 +9,7 @@ jobs:
           - v1.18.2-k3s1
     services:
       k3s:
-        image: rancher/k3s:${{ matrix.k8s_version }}
+        image: rancher/k3s:${{ matrix.k8s_version }} server
         env:
           K3S_KUBECONFIG_OUTPUT: "/tmp/output/kubeconfig-${{ matrix.k8s_version }}"
           K3S_KUBECONFIG_MODE: "666"
@@ -17,7 +17,7 @@ jobs:
           - 6443:6443
         volumes:
           - /tmp/output:/tmp/output
-        options: --privileged --entrypoint "/bin/sh -c '/bin/k3s server'"
+        options: --privileged
     steps:
     - name: Test on k3s
       env:
