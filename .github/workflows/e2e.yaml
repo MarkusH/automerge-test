@@ -18,7 +18,7 @@ jobs:
         volumes:
           - /tmp/output:/tmp/output
         options: --privileged
-        command: server
+        cmd: server
     steps:
     - name: Test on k3s
       env:
