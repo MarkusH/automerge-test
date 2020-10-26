@@ -15,5 +15,6 @@ jobs:
       with:
         version: ${{ matrix.k8s_version }}
     - name: Test on k3s
+      run: |
         kubectl get nodes
         kubectl config get-contexts
